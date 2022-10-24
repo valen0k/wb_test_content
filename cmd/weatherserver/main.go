@@ -24,8 +24,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	server := weatherserver.New(config)
-	if err := server.Start(locationFilePath); err != nil {
+	if err := weatherserver.Start(config, locationFilePath); err != nil {
 		log.Fatalln(err)
 	}
 }

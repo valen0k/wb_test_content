@@ -1,4 +1,4 @@
-package store
+package sqlstore
 
 import (
 	"github.com/valen0k/wb_test_content/internal/app/model"
