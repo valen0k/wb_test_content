@@ -15,7 +15,7 @@ import (
 	"sync"
 )
 
-const APIURL = "https://api.openweathermap.org/data/2.5/forecast?appid=%s&lat=%f&lon=%f&mode=json&units=metric&lang=RU"
+const apiURL = "https://api.openweathermap.org/data/2.5/forecast?appid=%s&lat=%f&lon=%f&mode=json&units=metric&lang=RU"
 
 func Start(config *Config, locFile string) error {
 	locations, err := model.ReadLocFile(locFile)
@@ -33,6 +33,7 @@ func Start(config *Config, locFile string) error {
 		return err
 	}
 	defer db.Close()
+	logger.Infoln("connect database")
 
 	st := sqlstore.New(db, locations)
 	err = uploadWeather(st.Weather(), locations, config.APIKey)
@@ -41,6 +42,7 @@ func Start(config *Config, locFile string) error {
 	}
 
 	srv := newServer(logger, st)
+	logger.Infoln("server create")
 
 	logger.Infoln("weather server start")
 	return http.ListenAndServe(config.BindAddr, srv)
@@ -114,7 +116,7 @@ func downloadInfoFromURL(loc model.Location, APIKey string) (model.Weather, erro
 	var weather model.Weather
 
 	resp, err := http.Get(fmt.Sprintf(
-		APIURL,
+		apiURL,
 		APIKey,
 		loc.Lat,
 		loc.Lon,

@@ -25,7 +25,6 @@ func newServer(logger *logrus.Logger, store store.Store) *server {
 	}
 
 	s.configureRouter()
-	s.logger.Infoln("server create")
 
 	return s
 }
