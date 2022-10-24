@@ -1,0 +1,122 @@
+[
+  {
+    "city": "London",
+    "country": "GB",
+    "lat": 51.5073219,
+    "lon": -0.1276474
+  },
+  {
+    "city": "Moscow",
+    "country": "RU",
+    "lat": 55.7504461,
+    "lon": 37.6174943
+  },
+  {
+    "city": "Berlin",
+    "country": "DE",
+    "lat": 52.5170365,
+    "lon": 13.3888599
+  },
+  {
+    "city": "Kyiv",
+    "country": "UA",
+    "lat": 50.4500336,
+    "lon": 30.5241361
+  },
+  {
+    "city": "Washington",
+    "country": "US",
+    "lat": 38.8950368,
+    "lon": -77.0365427
+  },
+  {
+    "city": "Rome",
+    "country": "IT",
+    "lat": 41.8933203,
+    "lon": 12.4829321
+  },
+  {
+    "city": "Vienna",
+    "country": "AT",
+    "lat": 48.2083537,
+    "lon": 16.3725042
+  },
+  {
+    "city": "Paris",
+    "country": "FR",
+    "lat": 48.8588897,
+    "lon": 2.3200410217200766
+  },
+  {
+    "city": "Beijing",
+    "country": "CN",
+    "lat": 39.906217,
+    "lon": 116.3912757
+  },
+  {
+    "city": "Astana",
+    "country": "KZ",
+    "lat": 51.1282205,
+    "lon": 71.4306682
+  },
+  {
+    "city": "Cairo",
+    "country": "EG",
+    "lat": 30.0443879,
+    "lon": 31.2357257
+  },
+  {
+    "city": "Tehran",
+    "country": "IR",
+    "lat": 35.6892523,
+    "lon": 51.3896004
+  },
+  {
+    "city": "Baghdad",
+    "country": "IQ",
+    "lat": 33.3061701,
+    "lon": 44.3872213
+  },
+  {
+    "city": "Abu Dhabi",
+    "country": "AE",
+    "lat": 24.4538352,
+    "lon": 54.3774014
+  },
+  {
+    "city": "Prague",
+    "country": "CZ",
+    "lat": 50.0874654,
+    "lon": 14.4212535
+  },
+  {
+    "city": "Belgrade",
+    "country": "RS",
+    "lat": 44.8178131,
+    "lon": 20.4568974
+  },
+  {
+    "city": "Tbilisi",
+    "country": "GE",
+    "lat": 41.6934591,
+    "lon": 44.8014495
+  },
+  {
+    "city": "Mexico City",
+    "country": "MX",
+    "lat": 19.4326296,
+    "lon": -99.1331785
+  },
+  {
+    "city": "Santiago",
+    "country": "CR",
+    "lat": 9.8694792,
+    "lon": -83.7980749
+  },
+  {
+    "city": "Tokyo",
+    "country": "JP",
+    "lat": 35.6828387,
+    "lon": 139.7594549
+  }
+]
