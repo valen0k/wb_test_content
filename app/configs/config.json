@@ -1,0 +1,6 @@
+{
+  "bind_addr": "127.0.0.1:8081",
+  "database_url": "host=localhost port=5432 user=test password=12345 dbname=test",
+  "log_level": "debug",
+  "api_key": "55416e29c70a43557ee6918eb1b5322a"
+}

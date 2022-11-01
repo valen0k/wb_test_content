@@ -7,22 +7,20 @@ import (
 )
 
 var (
-	configPath       string
+	//configPath       string
 	locationFilePath string
 )
 
 func init() {
-	flag.StringVar(&configPath, "c", "configs/config.json", "path to config file")
+	//flag.StringVar(&configPath, "c", "configs/config.json", "path to config file")
 	flag.StringVar(&locationFilePath, "l", "configs/locations.json", "path to locations file")
 }
 
 func main() {
 	flag.Parse()
 
-	config := weatherserver.NewConfig()
-	if err := config.DecodeConfigFile(configPath); err != nil {
-		log.Fatalln(err)
-	}
+	log.Println("config initializing")
+	config := weatherserver.GetConfig()
 
 	if err := weatherserver.Start(config, locationFilePath); err != nil {
 		log.Fatalln(err)
