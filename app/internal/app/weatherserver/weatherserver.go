@@ -15,7 +15,8 @@ import (
 	"sync"
 )
 
-const apiURL = "https://api.openweathermap.org/data/2.5/forecast?appid=%s&lat=%f&lon=%f&mode=json&units=metric&lang=RU"
+const apiURL = "http://api.openweathermap.org/data/2.5/forecast?appid=%s&lat=%f&lon=%f&mode=json&units=metric&lang=RU"
+const databaseURL = "host=%s port=%s user=%s password=%s dbname=%s"
 
 func Start(config *Config, locFile string) error {
 	locations, err := model.ReadLocFile(locFile)
@@ -23,33 +24,41 @@ func Start(config *Config, locFile string) error {
 		return err
 	}
 
+	log.Println("logger initializing")
 	logger, err := newLogger(config.LogLevel)
 	if err != nil {
 		return err
 	}
 
-	db, err := newDB(config.DatabaseURL)
+	logger.Infoln("connection database")
+	db, err := newDB(config.PostgreSQL)
 	if err != nil {
 		return err
 	}
 	defer db.Close()
-	logger.Infoln("connect database")
 
+	logger.Infoln("upload info about weather")
 	st := sqlstore.New(db, locations)
 	err = uploadWeather(st.Weather(), locations, config.APIKey)
 	if err != nil {
 		return err
 	}
 
+	logger.Infoln("server initializing")
 	srv := newServer(logger, st)
-	logger.Infoln("server create")
 
 	logger.Infoln("weather server start")
-	return http.ListenAndServe(config.BindAddr, srv)
+	return http.ListenAndServe(fmt.Sprintf("%s:%s", config.BindIP, config.Port), srv)
 }
 
-func newDB(databaseURL string) (*sql.DB, error) {
-	db, err := sql.Open("pgx", databaseURL)
+func newDB(database Database) (*sql.DB, error) {
+	db, err := sql.Open("pgx", fmt.Sprintf(
+		databaseURL,
+		database.Host,
+		database.Port,
+		database.Username,
+		database.Password,
+		database.Database))
 	if err != nil {
 		return nil, err
 	}

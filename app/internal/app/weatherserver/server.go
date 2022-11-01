@@ -24,6 +24,7 @@ func newServer(logger *logrus.Logger, store store.Store) *server {
 		store:  store,
 	}
 
+	s.logger.Println("router initializing")
 	s.configureRouter()
 
 	return s
