@@ -23,7 +23,7 @@ services:
     environment:
       PSQL_USERNAME: "test"
       PSQL_PASSWORD: "12345"
-      PSQL_HOST: "localhost"
-      PSQL_PORT: "5435"
+      PSQL_HOST: "postgres"
+      PSQL_PORT: "5432"
       PSQL_DATABASE: "test"
       API_KEY: "55416e29c70a43557ee6918eb1b5322a"
